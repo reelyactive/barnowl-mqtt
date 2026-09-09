@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+import mqtt from 'mqtt';
+import { encode } from 'cbor2';
+import Raddec from 'raddec';
+import BarnowlMqtt, { MqttListener } from '../lib/barnowlmqtt.js';
+
+const TOPIC = 'v1/reelyactive/local/device/bada55beac04/3/tlm/raddec';
+
+const hostname = process.argv[2] || 'localhost';
+const port = process.argv[3] || 1883;
+const url = 'mqtt://' + hostname + ':' + port;
+
+const client = mqtt.connect(url);
+const barnowlMqtt = new BarnowlMqtt();
+
+barnowlMqtt.addListener(MqttListener, { client: client });
+barnowlMqtt.on('raddec', (raddec) => {
+  console.log(raddec.toFlattened());
+});
+barnowlMqtt.on('infrastructureMessage', (infrastructureMessage) => {
+  console.log(infrastructureMessage);
+});
+
+setInterval(publishData, 1000);
+
+function publishData() {
+  if(client.connected) {
+    const raddec = new Raddec({
+        transmitterId: "bada55beac04",
+        transmitterIdType: 3,
+        rssiSignature: [{
+            receiverId: "001bc50940820000",
+            receiverIdType: 1,
+            rssi: -69 + Math.round(Math.random() * 10),
+            numberOfDecodings: 3
+        }]
+    });
+    raddec.trim();
+
+    const isEncoding = (Math.random() >= 0.5);
+    const message = isEncoding ? encode(raddec) : JSON.stringify(raddec);
+    const messageType = isEncoding ? 'CBOR' : 'JSON';
+    console.log(`Publishing ${message.length} byte ${messageType} message to ${TOPIC}`);
+    client.publish(TOPIC, message);
+  }
+}
+
+console.log(`barnowl-mqtt instantiation test with broker at ${url}`);

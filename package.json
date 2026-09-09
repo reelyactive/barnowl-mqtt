@@ -1,0 +1,44 @@
+{
+  "name": "barnowl-mqtt",
+  "homepage": "https://github.com/reelyactive/barnowl-mqtt/",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
+  "description": "Collect ambient IoT data from a MQTT broker.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "barnowl",
+    "MQTT",
+    "IoT",
+    "raddec"
+  ],
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "main": "./lib/barnowlmqtt.js",
+  "scripts": {
+    "start": "node bin/barnowl-mqtt",
+    "test": "node bin/barnowl-mqtt-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/barnowl-mqtt.git"
+  },
+  "dependencies": {
+    "cbor2": "~2.3.0",
+    "mqtt": "~5.15.2",
+    "raddec": ">=0.6.2"
+  },
+  "bugs": {
+    "url": "https://github.com/reelyactive/barnowl-mqtt/issues"
+  },
+  "contributors": [
+    {
+      "name": "Jeffrey Dungen"
+    }
+  ],
+  "license": "MIT"
+}

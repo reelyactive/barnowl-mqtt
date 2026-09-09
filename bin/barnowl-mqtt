@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+import BarnowlMqtt, { MqttListener } from '../lib/barnowlmqtt.js';
+
+const hostname = process.argv[2] || 'localhost';
+const port = process.argv[3] || 1883;
+const url = 'mqtt://' + hostname + ':' + port;
+
+const barnowlMqtt = new BarnowlMqtt();
+
+barnowlMqtt.addListener(MqttListener, { url: url });
+barnowlMqtt.on('raddec', (raddec) => {
+  console.log(raddec.toFlattened());
+});
+barnowlMqtt.on('infrastructureMessage', (infrastructureMessage) => {
+  console.log(infrastructureMessage);
+});
+
+console.log(`barnowl-mqtt instantiation test with broker at ${url}`);
