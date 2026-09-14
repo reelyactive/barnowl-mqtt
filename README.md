@@ -72,6 +72,12 @@ While __barnowl-mqtt__ may suffice standalone for simple real-time applications,
 These packages and more are bundled together as the [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere) open source middleware suite, which includes a variety of __barnowl-x__ listeners, APIs and interactive web apps.
 
 
+reelyOpinionated
+----------------
+
+__barnowl-mqtt__ observes [reelyActive's JavaScript Style Guide](https://github.com/reelyactive/javascript-style-guide).  The `npm run lint` script uses [ESLint](https://eslint.org/) and [ESLint Stylistic](https://eslint.style/) to check the code, flagging any errors and/or warnings.  The `npm run lint:fix` script applies fixes to observe the style guide.
+
+
 Contributing
 ------------
 

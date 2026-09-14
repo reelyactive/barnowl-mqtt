@@ -21,16 +21,24 @@
   "main": "./lib/barnowlmqtt.js",
   "scripts": {
     "start": "node bin/barnowl-mqtt",
-    "test": "node bin/barnowl-mqtt-test"
+    "test": "node bin/barnowl-mqtt-test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/reelyactive/barnowl-mqtt.git"
   },
   "dependencies": {
-    "cbor2": "~2.3.0",
-    "mqtt": "~5.15.2",
+    "cbor2": "^2.3.0",
+    "mqtt": "^5.15.2",
     "raddec": ">=0.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^10.10.0",
+    "@eslint/js": "^10.0.1",
+    "globals": "^17.12.0",
+    "@stylistic/eslint-plugin": "^5.10.0"
   },
   "bugs": {
     "url": "https://github.com/reelyactive/barnowl-mqtt/issues"
