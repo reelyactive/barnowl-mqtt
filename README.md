@@ -81,9 +81,11 @@ The path elements are as follows:
 | device_id_type | n/a         | See [Cheatsheet #idtype](https://reelyactive.github.io/diy/cheatsheet/#idtype) |
 | function       | tlm/raddec  | Topic function (ex: radio decoding telemetry)  |
 
-For example, by default, __barnowl-mqtt__ would interpret the following as a radio decoding (raddec) from a Bluetooth Low Energy device with random identifier `ba:da:55:be:ac:04` on a local (i.e. non-remote) deployment of the reelyActive organisation:
+For example, by default, __barnowl-mqtt__ would interpret the following as a radio decoding ([raddec](https://github.com/reelyactive/raddec)) from a Bluetooth Low Energy device with __random__ (i.e. type 3) identifier `ba:da:55:be:ac:04` on a __local__ (i.e. non-remote) deployment of the __reelyActive__ organisation:
 
     v1/reelyactive/local/device/bada55beac04/3/tlm/raddec
+
+Note that all elements are _lowercase_ and the device_id is _hexadecimal_, without separators.
 
 
 Is that owl you can do?
