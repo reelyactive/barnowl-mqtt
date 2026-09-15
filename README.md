@@ -30,14 +30,14 @@ Hello barnowl-mqtt!
 Developing an application directly from __barnowl-mqtt__?  Start by pasting the code below into a file called server.js:
 
 ```javascript
-import Barnowl from 'barnowl';
-import BarnowlMqtt, { MqttListener } from 'barnowl-mqtt';
+import Barnowl from "barnowl";
+import BarnowlMqtt, { MqttListener } from "barnowl-mqtt";
 
 const barnowl = new Barnowl({ enableMixing: true });
 
 barnowl.addListener(BarnowlMqtt, {}, MqttListener, {}); // See options below
 
-barnowl.on('raddec', (raddec) => {
+barnowl.on("raddec", (raddec) => {
   console.log(raddec);
   // Trigger your application logic here
 });
