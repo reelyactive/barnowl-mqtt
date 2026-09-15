@@ -62,6 +62,30 @@ barnowl.addListener(BarnowlMqtt, {}, MqttListener, options);
 The clientOptions are defined in the [MQTT.js Client constructor documentation](https://github.com/mqttjs/MQTT.js#client).
 
 
+MQTT Topic Hierarchy
+--------------------
+
+The following topic hierarchy is observed by __barnowl-mqtt__:
+
+    <version>/<tenant>/<location>/<device_type>/<device_id>/<device_id_type>/<function>
+
+The path elements are as follows:
+
+| Element        | Default     | Description                               |
+|:---------------|:------------|:------------------------------------------|
+| version        | v1          | Topic hierarchy version                   |
+| tenant         | reelyactive | Organisation (for multi-tenancy)          |
+| location       | local       | Site or logical grouping (for multi-site) |
+| device_type    | device      | Optional device classification            |
+| device_id      | n/a         | Unique device (radio-)identifier          |
+| device_id_type | n/a         | See [Cheatsheet #idtype](https://reelyactive.github.io/diy/cheatsheet/#idtype) |
+| function       | tlm/raddec  | Topic function (ex: radio decoding telemetry)  |
+
+For example, by default, __barnowl-mqtt__ would interpret the following as a radio decoding (raddec) from a Bluetooth Low Energy device with random identifier `ba:da:55:be:ac:04` on a local (i.e. non-remote) deployment of the reelyActive organisation:
+
+    v1/reelyactive/local/device/bada55beac04/3/tlm/raddec
+
+
 Is that owl you can do?
 -----------------------
 
