@@ -88,6 +88,18 @@ For example, by default, __barnowl-mqtt__ would interpret the following as a rad
 Note that all elements are _lowercase_ and the device_id is _hexadecimal_, without separators.
 
 
+Supported MQTT Messages
+-----------------------
+
+__barnowl-mqtt__ supports [raddec](https://github.com/reelyactive/raddec) messages in either of the following formats:
+- JSON string
+- [CBOR](https://cbor.io/)-encoded
+
+The CBOR format results in a slightly reduced message size, at the expense of minor additional computation.  It is recommended for network-bandwidth-constrained environments.
+
+Expect other message types to be supported in future versions of __barnowl-mqtt__.
+
+
 Is that owl you can do?
 -----------------------
 
