@@ -30,8 +30,8 @@
     "url": "https://github.com/reelyactive/barnowl-mqtt.git"
   },
   "dependencies": {
-    "cbor2": "^2.3.0",
-    "mqtt": "^5.15.2",
+    "cbor2": "^2.4.0",
+    "mqtt": "^5.16.1",
     "raddec": ">=0.6.2"
   },
   "devDependencies": {
