@@ -5,7 +5,7 @@ import { encode } from 'cbor2';
 import Raddec from 'raddec';
 import BarnowlMqtt, { MqttListener } from '../lib/barnowlmqtt.js';
 
-const TOPIC = 'v1/reelyactive/local/device/bada55beac04/3/tlm/raddec';
+const TOPIC = 'pareto/v1/reelyactive/local/device/bada55beac04/3/tlm/raddec';
 
 const hostname = process.argv[2] || 'localhost';
 const port = process.argv[3] || 1883;
